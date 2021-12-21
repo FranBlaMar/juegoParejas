@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartaJuegoComponent } from './carta-juego/carta-juego.component';
+import { BusquedaCartaComponent } from './busqueda-carta/busqueda-carta.component';
+import { ResultadosBusquedaComponent } from './resultados-busqueda/resultados-busqueda.component';
 
 
 
 @NgModule({
   declarations: [
-    CartaJuegoComponent
+    CartaJuegoComponent,
+    BusquedaCartaComponent,
+    ResultadosBusquedaComponent
   ],
   exports: [
-    CartaJuegoComponent
+    CartaJuegoComponent,
+    BusquedaCartaComponent
   ],
   imports: [
     CommonModule

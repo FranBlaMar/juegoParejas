@@ -1,21 +1,30 @@
 <mat-toolbar color="primary" class="text-center">
   Juego de memoria de parejas 
+    <button (click) = "cambiarAjustes()"><span class="glyphicon glyphicon-home"></span>Ajustes</button>
 </mat-toolbar>
 <div class="p-16">
-  <p class="text-center">Pincha en una carta para darle la vuelta. solo puedes girar dos cartas al mismo tiempo. ¡Si coinciden ambas cartas seran eliminadas!</p>
-  <div class="text-center">
+  <div class="p-16" *ngIf="ajustes == true">
+    <app-busqueda-carta></app-busqueda-carta>
+  </div>
+  <!-- <div class="text-center">
     <p> Selecciona dificultad del juego: </p>
     <form (ngSubmit) = "cambiarDificultad()">
-    <input type="radio" id="Easy" name="dificultad" value="Facil" checked>
+    <input type="radio" id="Easy" name="dificultad" value="Facil" checked [(ngModel)] = "dificultad">
     <label for="easy">Facil</label>
-    <input type="radio" id="Normal" name="dificultad" value="Normal">
+    <input type="radio" id="Normal" name="dificultad" value="Normal" [(ngModel)] = "dificultad">
     <label for="normal">Normal</label>
-    <input type="radio" id="Hard" name="dificultad" value="Hard">
+    <input type="radio" id="Hard" name="dificultad" value="Hard" [(ngModel)] = "dificultad">
     <label for="hard">Dificil</label>
+    <input type="submit" value="Cambiar Dificultad">
     </form>
-  </div>
-  <div class="grid p-16">
-    <app-carta-juego *ngFor="let c of cards; let idx=index" [data]="c" (cardClicked)="cardClicked(idx)">
-    </app-carta-juego>
+  </div> -->
+  <div *ngIf="ajustes == false">
+    <p class="text-center">Pincha en una carta para darle la vuelta. solo puedes girar dos cartas al mismo tiempo. ¡Si coinciden ambas cartas seran eliminadas!</p>
+    
+    <div class="grid p-16">
+      <app-carta-juego *ngFor="let c of cards; let idx=index" [data]="c" (cardClicked)="cardClicked(idx)">
+      </app-carta-juego>
+    </div>
+
   </div>
 </div>

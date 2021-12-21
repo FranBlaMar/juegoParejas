@@ -10,6 +10,7 @@ import { DialogoReinicioComponent } from './shared/dialogo-reinicio/dialogo-rein
 })
 export class AppComponent implements OnInit {
 
+  ajustes: Boolean = false;
   dificultad:  String = "Normal";
   cardImagesNormal = [
     'pDGNBK9A0sk',
@@ -33,7 +34,7 @@ export class AppComponent implements OnInit {
     'TQ-q5WAVHj0'
   ];
 
-  cardImages = this.cardImagesHard;
+  cardImages = this.cardImagesNormal;
 
   cards: CartaJuego[] = [];
 
@@ -41,6 +42,15 @@ export class AppComponent implements OnInit {
 
   matchedCount = 0;
 
+  cambiarAjustes(){
+    if (this.ajustes){
+      this.ajustes == false;
+    }
+    else{
+      this.ajustes == true;
+    }
+  }
+  
   cambiarDificultad(){
     if(this.dificultad == "Facil"){
       this.cardImages = this.cardImagesEasy;
